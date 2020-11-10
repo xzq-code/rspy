@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
+	
 	<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../css/font-awesome.min.css">
 	<link rel="stylesheet" href="../css/main.css">
@@ -30,7 +30,7 @@
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container-fluid">
         <div class="navbar-header">
-          <div><a class="navbar-brand" style="font-size:32px;" href="#">MES-System</a></div>
+          <div><a class="navbar-brand" style="font-size:32px;" href="#">CRM</a></div>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -68,60 +68,49 @@
 						<a href="main.html"><i class="glyphicon glyphicon-dashboard"></i> 控制面板</a> 
 					</li>
 					<li class="list-group-item tree-closed">
-						<span><i class="glyphicon glyphicon glyphicon-tasks"></i> 权限管理 <span class="badge" style="float:right">3</span></span> 
+						<span><i class="glyphicon glyphicon glyphicon-tasks"></i> 客户管理 <span class="badge" style="float:right">5</span></span> 
 						<ul style="margin-top:10px;display:none;">
 							<li style="height:30px;">
-								<a href="user/user.jsp"><i class="glyphicon glyphicon-user"></i> 用户维护</a> 
+								<a href="./user/user.jsp"><i class="glyphicon glyphicon-user"></i> 信息维护</a> 
 							</li>
 							<li style="height:30px;">
-								<a href="#"><i class="glyphicon glyphicon-king"></i> 角色维护</a> 
+								<a href="/DispatcherServlet?method=rolePage"><i class="glyphicon glyphicon-king"></i> 图片管理</a> 
 							</li>
 							<li style="height:30px;">
-								<a href="#"><i class="glyphicon glyphicon-lock"></i> 许可维护</a> 
+								<a href="permission.html"><i class="glyphicon glyphicon-lock"></i> 用户标签</a> 
+							</li>
+							<li style="height:30px;">
+								<a href="permission.html"><i class="glyphicon glyphicon-lock"></i> 层级关系</a> 
+							</li>
+							<li style="height:30px;">
+								<a href="permission.html"><i class="glyphicon glyphicon-lock"></i> 活动分析</a> 
 							</li>
 						</ul>
-					</li>
-					<li class="list-group-item tree-closed">
-						<span><i class="glyphicon glyphicon-ok"></i> 业务审核 <span class="badge" style="float:right">3</span></span> 
-						<ul style="margin-top:10px;display:none;">
-							<li style="height:30px;">
-								<a href="#"><i class="glyphicon glyphicon-check"></i> 实名认证审核</a> 
-							</li>
-							<li style="height:30px;">
-								<a href="#"><i class="glyphicon glyphicon-check"></i> 广告审核</a> 
-							</li>
-							<li style="height:30px;">
-								<a href="#"><i class="glyphicon glyphicon-check"></i> 项目审核</a> 
-							</li>
-						</ul>
-					</li>
-					<li class="list-group-item tree-closed" >
-						<a href="#"><i class="glyphicon glyphicon-list-alt"></i> 参数管理</a> 
 					</li>
 				</ul>
 			</div>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">控制面板</h1>
+          <h1 class="page-header">活动分析</h1>
 
           <div class="row placeholders">
             <div class="col-xs-6 col-sm-3 placeholder">
-              <img data-src="../holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
+              <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
               <h4>Label</h4>
               <span class="text-muted">Something else</span>
             </div>
             <div class="col-xs-6 col-sm-3 placeholder">
-              <img data-src="../holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
+              <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
               <h4>Label</h4>
               <span class="text-muted">Something else</span>
             </div>
             <div class="col-xs-6 col-sm-3 placeholder">
-              <img data-src="../holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
+              <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
               <h4>Label</h4>
               <span class="text-muted">Something else</span>
             </div>
             <div class="col-xs-6 col-sm-3 placeholder">
-              <img data-src="../holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
+              <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
               <h4>Label</h4>
               <span class="text-muted">Something else</span>
             </div>
@@ -131,6 +120,7 @@
     </div>
     <script src="../jquery/jquery-2.1.1.min.js"></script>
     <script src="../bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/holder/2.9.4/holder.js"></script>
 	<script src="script/docs.min.js"></script>
         <script type="text/javascript">
             $(function () {

@@ -19,14 +19,14 @@
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
-          <div><a class="navbar-brand" href="#" style="font-size:32px;">MES-System</a></div>
+          <div><a class="navbar-brand" href="#" style="font-size:32px;">微信客服管理系统</a></div>
         </div>
       </div>
     </nav>
 
     <div class="container">
 	  <%-- <h1 style="color:red;">${param.errorMsg}</h1> --%>
-      <form id="loginForm" action="/jspexam/LoginServlet" method="post" class="form-signin" role="form">
+      <form id="loginForm" action="main.jsp" method="post" class="form-signin" role="form">
         <h2 class="form-signin-heading"><i class="glyphicon glyphicon-user"></i> 用户登录</h2>
 		  <div class="form-group has-success has-feedback">
 			<input type="text" class="form-control" id="loginacct" name="account" placeholder="请输入登录账号" autofocus>
@@ -54,7 +54,7 @@
             <a href="register.jsp">我要注册</a>
           </label>
         </div>
-        <input type="submit" class="btn btn-lg btn-success btn-block"  value="登录">
+        <input type="submit" class="btn btn-lg btn-success btn-block" value="登录">
       </form>
     </div>
     <script src="../jquery/jquery-2.1.1.min.js"></script>
