@@ -30,7 +30,7 @@
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container-fluid">
         <div class="navbar-header">
-          <div><a class="navbar-brand" style="font-size:32px;" href="#">CRM</a></div>
+          <div><a class="navbar-brand" style="font-size:32px;" href="./main.jsp">海报管理</a></div>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -67,23 +67,12 @@
 					<li class="list-group-item tree-closed" >
 						<a href="main.html"><i class="glyphicon glyphicon-dashboard"></i> 控制面板</a> 
 					</li>
-					<li class="list-group-item tree-closed">
-						<span><i class="glyphicon glyphicon glyphicon-tasks"></i> 客户管理 <span class="badge" style="float:right">5</span></span> 
-						<ul style="margin-top:10px;display:none;">
+					<li class="list-group-item">
+						<span><i class="glyphicon glyphicon glyphicon-tasks"></i> 权限管理 
+						<span class="badge" style="float:right">1</span></span> 
+						<ul style="margin-top:10px;">
 							<li style="height:30px;">
-								<a href="./user/user.jsp"><i class="glyphicon glyphicon-user"></i> 信息维护</a> 
-							</li>
-							<li style="height:30px;">
-								<a href="./imgs.jsp"><i class="glyphicon glyphicon-king"></i> 图片管理</a> 
-							</li>
-							<li style="height:30px;">
-								<a href="./user/userLable.jsp"><i class="glyphicon glyphicon-lock"></i> 用户标签</a> 
-							</li>
-							<li style="height:30px;">
-								<a href="#"><i class="glyphicon glyphicon-lock"></i> 层级关系</a> 
-							</li>
-							<li style="height:30px;">
-								<a href="#" style="color:red;"><i class="glyphicon glyphicon-lock"></i> 活动分析</a> 
+								<a href="./user.jsp" style="color:red;"><i class="glyphicon glyphicon-user"></i>海报管理</a> 
 							</li>
 						</ul>
 					</li>
@@ -91,28 +80,32 @@
 			</div>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">活动分析</h1>
+          <h1 class="page-header">活动海报</h1>
 
           <div class="row placeholders">
             <div class="col-xs-6 col-sm-3 placeholder">
-              <img data-src="holder.js/200x200?theme=sky" class="img-responsive" alt="Generic placeholder thumbnail">
+            <!--  <img data-src="holder.js/200x200?theme=sky" class="img-responsive" alt="Generic placeholder thumbnail">
               <h4>Label</h4>
-              <span class="text-muted">Something else</span>
+              <span class="text-muted">Something else</span> -->
+              <img alt="" src="/upload/haibao1.png">
             </div>
             <div class="col-xs-6 col-sm-3 placeholder">
-              <img data-src="holder.js/200x200?theme=vine" class="img-responsive" alt="Generic placeholder thumbnail">
+              <!-- <img data-src="holder.js/200x200?theme=vine" class="img-responsive" alt="Generic placeholder thumbnail">
               <h4>Label</h4>
-              <span class="text-muted">Something else</span>
+              <span class="text-muted">Something else</span> -->
+              <img alt="" src="/upload/haibao2.png">
             </div>
             <div class="col-xs-6 col-sm-3 placeholder">
-              <img data-src="holder.js/200x200?theme=sky" class="img-responsive" alt="Generic placeholder thumbnail">
+             <!--  <img data-src="holder.js/200x200?theme=sky" class="img-responsive" alt="Generic placeholder thumbnail">
               <h4>Label</h4>
-              <span class="text-muted">Something else</span>
+              <span class="text-muted">Something else</span> -->
+              <img alt="" src="/upload/haibao3.png">
             </div>
             <div class="col-xs-6 col-sm-3 placeholder">
-              <img data-src="holder.js/200x200?theme=vine" class="img-responsive" alt="Generic placeholder thumbnail">
+             <!--  <img data-src="holder.js/200x200?theme=vine" class="img-responsive" alt="Generic placeholder thumbnail">
               <h4>Label</h4>
-              <span class="text-muted">Something else</span>
+              <span class="text-muted">Something else</span> -->
+              <img alt="" src="/upload/haibao4.png">
             </div>
           </div>
         </div>
@@ -121,7 +114,6 @@
     <script src="../jquery/jquery-2.1.1.min.js"></script>
     <script src="../bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdn.bootcss.com/holder/2.9.4/holder.js"></script>
-	<script src="script/docs.min.js"></script>
         <script type="text/javascript">
             $(function () {
 			    $(".list-group-item").click(function(){

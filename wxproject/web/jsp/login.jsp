@@ -36,22 +36,16 @@
 			<input type="password" class="form-control" id="userpasswd" name="password" placeholder="请输入登录密码" style="margin-top:10px;">
 			<span class="glyphicon glyphicon-lock form-control-feedback"></span>
 		  </div>
-		  <div class="form-group has-success has-feedback">
-			<select class="form-control" name="role">
-                <option value="member">会员</option>
-                <option value="user">管理</option>
-            </select>
-		  </div>
         <div class="checkbox">
           <label>
             <input type="checkbox" value="remember-me" name="remember"> 记住我
           </label>
-          <br>
+          <!-- <br>
           <label>
-            忘记密码
-          </label>
+         	   忘记密码
+          </label>-->          
           <label style="float:right">
-            <a href="register.jsp">我要注册</a>
+            <a href="register.jsp">忘记密码</a>
           </label>
         </div>
         <input type="submit" class="btn btn-lg btn-success btn-block" value="登录">

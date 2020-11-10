@@ -69,10 +69,10 @@
 						<span class="badge" style="float:right">2</span></span> 
 						<ul style="margin-top:10px;">
 							<li style="height:30px;">
-								<a href="./user.jsp" style="color:red;"><i class="glyphicon glyphicon-user"></i> 用户维护</a> 
+								<a href="./user.jsp" style="color:blue;"><i class="glyphicon glyphicon-user"></i> 用户维护</a> 
 							</li>
 							<li style="height:30px;">
-								<a href="./admin.jsp" style="color:blue;"><i class="glyphicon glyphicon-user"></i> 商家维护</a> 
+								<a href="./admin.jsp" style="color:red;"><i class="glyphicon glyphicon-user"></i> 商家维护</a> 
 							</li>
 						</ul>
 					</li>
@@ -94,6 +94,7 @@
   </div>
   <button id="queryBtn" type="button" class="btn btn-warning"><i class="glyphicon glyphicon-search"></i> 查询</button>
 </form>
+<a href="add.jsp"><button type="button" class="btn btn-primary" style="float:right;" ><i class="glyphicon glyphicon-plus"></i> 新增</button></a>
 <br>
  <hr style="clear:both;">
           <div class="table-responsive">
@@ -104,8 +105,8 @@
                   <th width="30">id</th>
 				  <th width="30"><input type="checkbox" id="allSelBox"></th>
                   <th>账号</th>
-                  <th>名称</th>
-                  <th>邮箱地址</th>
+                  <th>邮箱</th>
+                  <th>密码</th>
                   <th width="100">操作</th>
                 </tr>
               </thead>
@@ -114,20 +115,22 @@
 	                	  	<td>6</td>
 	                	  	<td><input type='checkbox' name='userid' value='"+user.id+"'></td>
 	                	 	<td>tom</td>
-	                	 	<td>username</td>
-	                	 	<td>email</td>
+	                	 	<td>651641@qq.com</td>
+	                	 	<td>123456</td>
 	                	 	<td>
-    							<button type='button'  class='btn btn-danger btn-xs'><i class='glyphicon glyphicon-remove'></i>删除</button>
+    							<button type='button'  class='btn btn-primary btn-xs'><i class='glyphicon glyphicon-pencil'></i></button>
+    							<button type='button'  class='btn btn-danger btn-xs'><i class='glyphicon glyphicon-remove'></i></button>
     						</td>
 	                	  </tr>
 	                	  <tr>
 	                	  	<td>7</td>
 	                	  	<td><input type='checkbox' name='userid' value='"+user.id+"'></td>
 	                	 	<td>tom</td>
-	                	 	<td>username</td>
-	                	 	<td>email</td>
+	                	 	<td>1384132@qq.com</td>
+	                	 	<td>123456</td>
 	                	 	<td>
-    							<button type='button'  class='btn btn-danger btn-xs'><i class='glyphicon glyphicon-remove'></i>删除</button>
+    							<button type='button'  class='btn btn-primary btn-xs'><i class='glyphicon glyphicon-pencil'></i></button>
+    							<button type='button'  class='btn btn-danger btn-xs'><i class='glyphicon glyphicon-remove'></i></button>
     						</td>
 	                	  </tr>	                	 
 	              </tbody>

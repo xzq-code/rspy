@@ -25,7 +25,7 @@
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container-fluid">
         <div class="navbar-header">
-            <div><a class="navbar-brand" style="font-size:32px;" href="user.html">Mes_sys</a></div>
+            <div><a class="navbar-brand" style="font-size:32px;" href="user.html">信息管理</a></div>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -64,17 +64,14 @@
 						<a href="main.html"><i class="glyphicon glyphicon-dashboard"></i> 控制面板</a> 
 					</li>
 					<li class="list-group-item">
-						<span><i class="glyphicon glyphicon glyphicon-tasks"></i> 权限管理 <span class="badge" style="float:right">3</span></span> 
+						<span><i class="glyphicon glyphicon glyphicon-tasks"></i> 权限管理 
+						<span class="badge" style="float:right">1</span></span> 
 						<ul style="margin-top:10px;">
 							<li style="height:30px;">
-								<a href="user.jsp" style="color:red;"><i class="glyphicon glyphicon-user"></i> 用户维护</a> 
+								<a href="user.jsp" style="color:red;"><i class="glyphicon glyphicon-user">
+								</i> 添加管理员</a> 
 							</li>
 						</ul>
-					</li>
-					
-					
-					<li class="list-group-item tree-closed" >
-						<a href="#"><i class="glyphicon glyphicon-list-alt"></i> 参数管理</a> 
 					</li>
 				</ul>
 			</div>
@@ -94,7 +91,11 @@
 					<input type="text" class="form-control" id="loginacct" placeholder="请输入登陆账号">
 				  </div>
 				  <div class="form-group">
-					<label for="exampleInputPassword1">用户名称</label>
+					<label for="exampleInputPassword1">账号密码</label>
+					<input type="text" class="form-control" id="username" placeholder="请输入用户名称">
+				  </div>
+				  <div class="form-group">
+					<label for="exampleInputPassword1">确认密码</label>
 					<input type="text" class="form-control" id="username" placeholder="请输入用户名称">
 				  </div>
 				  <div class="form-group">
@@ -102,7 +103,7 @@
 					<input type="email" class="form-control" id="email" placeholder="请输入邮箱地址">
 					<p class="help-block label label-warning">请输入合法的邮箱地址, 格式为： xxxx@xxxx.com</p>
 				  </div>
-				  <button type="button" id="insertBtn" class="btn btn-success"><i class="glyphicon glyphicon-plus"></i> 新增</button>
+				  <button type="button" id="insertBtn" class="btn btn-success" href="admin.html"><i class="glyphicon glyphicon-plus"></i> 新增</button>
 				  <button type="button" class="btn btn-danger"><i class="glyphicon glyphicon-refresh"></i> 重置</button>
 				</form>
 			  </div>
