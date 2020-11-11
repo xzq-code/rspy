@@ -13,9 +13,12 @@ import org.dom4j.Document;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
+import com.xzq.base.Dao;
 import com.xzq.model.bean.User;
 import com.xzq.model.configuration.MsgTemplate;
 import com.xzq.model.configuration.TokenConfig;
+import com.xzq.model.dao.crm.impl.FansDaoImpl;
+import com.xzq.model.pojo.Fans;
 import com.xzq.utils.ImageUtil;
 import com.xzq.utils.MyMeidaIdTab;
 
@@ -64,7 +67,7 @@ public class WxDao {
 		}
 	}
 	
-	public static User createUser(Map<String, String> xmlMap) {
+	public static Fans createFans(Map<String, String> xmlMap) {
 		//调用获取用户信息的接口
 		String userInfoUrl=TokenConfig.getUserInfoUrl(xmlMap);
 		//获取用户信息
@@ -72,10 +75,11 @@ public class WxDao {
 		//处理json数据
 		JSONObject jObj=JSONUtil.parseObj(res);
 		//封装对象
-		User user=new User();
-		user.setNickname(jObj.getStr("nickname"));//昵称
-		user.setHeadimgurl(jObj.getStr("headimgurl"));//头像地址
-		return user;
+		Fans fans=new Fans();
+		fans.setNickname(jObj.getStr("nickname"));//昵称
+		fans.setHeadimgurl(jObj.getStr("headimgurl"));//头像地址
+		
+		return fans;
 	}
 	
 	//获取ticket
@@ -90,20 +94,24 @@ public class WxDao {
 	
 	//处理事件
 	private static String handleEventMessage(Map<String, String> xmlMap) {
+		//关注了就要添加
 		//筛选处理事件类型
 		String eventType=xmlMap.get("Event");
 		//封装用户信息
-		User user=createUser(xmlMap);
+		Fans fans=createFans(xmlMap);
+		//添加到数据库
 		String url=TokenConfig.getCustomerUrl();
 		switch(eventType) {
 		//事件类型---关注------分为扫描带参数的二维码关注或直接关注（搜索公众号添加关注，扫描不带参数二维码添加关注）
 		case "subscribe":
-			//当事件类型为关注时，
+			//当事件类型为关注时，将用户信息存入数据库
+			FansDaoImpl fansDaoImpl=new FansDaoImpl();
+			fansDaoImpl.addFans(fans);
 			//回复欢迎消息
-			String welcomeMsg=MsgTemplate.getTextCustomerTemplate("感谢"+user.getNickname()+"关注本公众号/:B-)/:B-)/:B-)", xmlMap);
+			String welcomeMsg=MsgTemplate.getTextCustomerTemplate("感谢"+fans.getNickname()+"关注本公众号/:B-)/:B-)/:B-)", xmlMap);
 			HttpUtil.post(url, welcomeMsg);
 			//回复dm单
-			String mediaId=createPoster(xmlMap,user);
+			String mediaId=createPoster(xmlMap,fans);
 			String posterMsg=MsgTemplate.getImgCustomerTemplate(mediaId, xmlMap);
 			HttpUtil.post(url, posterMsg);
 			//获取ticket元素
@@ -118,7 +126,7 @@ public class WxDao {
 				String newFromUserName=xmlMap.get("EventKey").replace("qrscene_", "");
 				//HashMap键相同值被覆盖 更新其中的openId
 				xmlMap.put("FromUserName", newFromUserName);
-				String hasHelpedMsg=MsgTemplate.getTextCustomerTemplate(user.getNickname()+"已为你助力", xmlMap);
+				String hasHelpedMsg=MsgTemplate.getTextCustomerTemplate(fans.getNickname()+"已为你助力", xmlMap);
 				HttpUtil.post(url, hasHelpedMsg);
 			}
 			break;
@@ -133,11 +141,11 @@ public class WxDao {
 	//处理文本内容
 	private static void handleTextMessage(Map<String, String> xmlMap) {
 		//封装当期用户信息
-		User user=createUser(xmlMap);//此处应保存数据库
+		Fans fans=createFans(xmlMap);
 		//固定消息回复
 		if(xmlMap.get("MsgType").equals("text")&&xmlMap.get("Content").equals("海报")) {
 			String customerUrl=TokenConfig.getCustomerUrl();
-			String mediaId=createPoster(xmlMap,user);
+			String mediaId=createPoster(xmlMap,fans);
 			String message=MsgTemplate.getImgCustomerTemplate(mediaId, xmlMap);
 			HttpUtil.post(customerUrl, message);
 		}else {
@@ -147,11 +155,10 @@ public class WxDao {
 		}
 	}
 	
-	private static String createPoster(Map<String, String> xmlMap,User user) {
+	private static String createPoster(Map<String, String> xmlMap,Fans fans) {
 		String mediaId=MyMeidaIdTab.getMediaId(xmlMap.get("FromUserName"));
 		if(null==mediaId) {
-			//首次获取海报，用户次数初始化
-			user.setCount(3);
+			
 			//获得ticket
 			String ticket=getTicket(xmlMap);
 			//url编码
@@ -162,9 +169,9 @@ public class WxDao {
 			HttpUtil.downloadFile(ticketurl, FileUtil.file("../../img/tmp/ticket.jpg"));
 			
 			//将头像下载到本地
-			HttpUtil.downloadFile(user.getHeadimgurl(), FileUtil.file("../../img/tmp/headimg.jpg"));
+			HttpUtil.downloadFile(fans.getHeadimgurl(), FileUtil.file("../../img/tmp/headimg.jpg"));
 			//添加昵称
-			ImageUtil.addText("../../img/tmp/haibao.png","../../img/tmp/haibao_text.png",user.getNickname());
+			ImageUtil.addText("../../img/tmp/haibao.png","../../img/tmp/haibao_text.png",fans.getNickname());
 			//添加头像
 			ImageUtil.addImg("../../img/tmp/haibao_text.png","../../img/tmp/haibao_text_img.png","../../img/tmp/headimg.jpg");
 			//添加二维码
