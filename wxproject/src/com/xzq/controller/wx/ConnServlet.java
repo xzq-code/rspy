@@ -55,15 +55,11 @@ public class ConnServlet extends HttpServlet {
 		Map<String, String> xmlMap = WxDao.handleMap(request);
 		//防止微信服务器重复提交请求
 		//返回一个微信服务器不处理的字符串
-		try {
-			int i=1/0;
-		}catch(Exception e) {
-			response.getWriter().print("success");
-			response.getWriter().flush();
-			response.getWriter().close();
-		}finally {
-			//消息处理
-			WxDao.handleMessage(xmlMap);
-		}
+		response.getWriter().print("success");
+		response.getWriter().flush();
+		response.getWriter().close();
+		//消息处理
+		WxDao.handleMessage(xmlMap);
+		
 	}
 }
