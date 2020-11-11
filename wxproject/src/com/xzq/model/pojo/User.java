@@ -1,64 +1,80 @@
 package com.xzq.model.pojo;
 
-import java.io.Serializable;
-
-public class User implements Serializable{
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 2900466913200185672L;
-	
+public class User {
 	private Integer id;
-	private String username;
-	private String loginacct;
-	private String userpasswd;
-	private String email;
-	
+	private String name;
+	private String password;
+	private String role;
+	private String createtime;
+	private String nickname;
+
 	public User() {
+
 	}
-	public User(Integer id, String username, String loginacct, String userpasswd, String email) {
+
+	public User(Integer id, String name, String password, String role, String createtime, String nickname) {
 		super();
 		this.id = id;
-		this.username = username;
-		this.loginacct = loginacct;
-		this.userpasswd = userpasswd;
-		this.email = email;
+		this.name = name;
+		this.password = password;
+		this.role = role;
+		this.createtime = createtime;
+		this.nickname = nickname;
 	}
+
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getUsername() {
-		return username;
+
+	public String getName() {
+		return name;
 	}
-	public void setUsername(String username) {
-		this.username = username;
+
+	public void setName(String name) {
+		this.name = name;
 	}
-	public String getLoginacct() {
-		return loginacct;
+
+	public String getPassword() {
+		return password;
 	}
-	public void setLoginacct(String loginacct) {
-		this.loginacct = loginacct;
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
-	
-	public String getUserpasswd() {
-		return userpasswd;
+
+	public String getRole() {
+		return role;
 	}
-	public void setUserpasswd(String userpasswd) {
-		this.userpasswd = userpasswd;
+
+	public void setRole(String role) {
+		this.role = role;
 	}
-	public String getEmail() {
-		return email;
+
+	public String getCreatetime() {
+		return createtime;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+
+	public void setCreatetime(String createtime) {
+		this.createtime = createtime;
 	}
+
+	public String getNickname() {
+		return nickname;
+	}
+
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+
 	@Override
 	public String toString() {
-		return "MesUser [id=" + id + ", username=" + username + ", loginacct=" + loginacct + ", userpasswd="
-				+ userpasswd + ", email=" + email + "]";
+		return "User [id=" + id + ", name=" + name + ", password=" + password + ", role=" + role + ", createtime="
+				+ createtime + ", nickname=" + nickname + "]";
 	}
+	
+	
 }
