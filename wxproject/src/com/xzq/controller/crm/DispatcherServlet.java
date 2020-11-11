@@ -1,11 +1,13 @@
 package com.xzq.controller.crm;
 
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.xzq.base.BaseServlet;
 //用来转发页面
+@WebServlet("/DispatcherServlet")
 public class DispatcherServlet extends BaseServlet{
 	private static String RPATH="r:/WEB-INF/jsp/";//请求转发路径
 	private static String FPATH="f:/WEB-INF/jsp/";//重定向路径

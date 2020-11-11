@@ -3,9 +3,12 @@ package com.xzq.utils;
 import java.awt.Color;
 
 import java.awt.Font;
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 import cn.hutool.core.codec.Base64Decoder;
 import cn.hutool.core.img.ImgUtil;
@@ -35,4 +38,26 @@ public class ImageUtil {
 				1f);
 		return newPath;
 	}
+	 //二
+    public static List<String> getFileName() {
+        String path = "F:\\Wxhiabao"; // 路径
+        File f = new File(path);
+        if (!f.exists()) {
+            System.out.println(path + " not exists");
+            return null;
+        }
+        ArrayList<String> fileName=new ArrayList<String>();
+        File fa[] = f.listFiles();
+        for (int i = 0; i < fa.length; i++) {
+            File fs = fa[i];
+            if (fs.isDirectory()) {
+                //System.out.println(fs.getName() + " [目录]");
+                continue;
+            } else {
+            	fileName.add(fs.getName());
+                //System.out.println(fs.getName());
+            }
+        }
+        return fileName;
+    }
 }
