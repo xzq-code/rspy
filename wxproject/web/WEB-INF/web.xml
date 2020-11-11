@@ -10,6 +10,15 @@
 		<url-pattern>/conn</url-pattern>
 	</servlet-mapping>
 	
+		<servlet>
+		<servlet-name>AllImgServlet</servlet-name>
+		<servlet-class>com.xzq.controller.crm.haibao.AllImgServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AllImgServlet</servlet-name>
+		<url-pattern>/AllImgServlet</url-pattern>
+	</servlet-mapping>
+	
 	<filter>
     	<filter-name>CharacterEncodingFilter</filter-name>	
     	<filter-class>com.xzq.filter.CharacterEncodingFilter</filter-class>

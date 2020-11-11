@@ -1,4 +1,7 @@
 <%@page pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var="basePath" value="${pageContext.request.contextPath}"></c:set>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html lang="zh-CN">
   <head>
@@ -8,9 +11,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
 	
-	<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" href="../css/font-awesome.min.css">
-	<link rel="stylesheet" href="../css/main.css">
+	<link rel="stylesheet" href="${basePath}/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="${basePath}/css/font-awesome.min.css">
+	<link rel="stylesheet" href="${basePath}/css/main.css">
 	<style>
 	.tree li {
         list-style-type: none;
@@ -81,38 +84,55 @@
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header">活动海报</h1>
-
+		<form class="form-inline" role="form">
+		  <div class="form-group has-feedback">
+		    <div class="input-group">
+		      <div class="input-group-addon">查询条件</div>
+		      <!-- <input id="queryText" class="form-control has-success" type="text" placeholder="请输入查询条件"> -->
+		      <select class="form-control has-success">
+		      	<option>餐饮</option>
+		      	<option>旅游</option>
+		      	<option>零售</option>
+		      </select>
+		    </div>
+		  </div>
+		  <button id="queryBtn" type="button" class="btn btn-warning"><i class="glyphicon glyphicon-search"></i> 查询</button>
+		</form>
           <div class="row placeholders">
-            <div class="col-xs-6 col-sm-3 placeholder">
-            <!--  <img data-src="holder.js/200x200?theme=sky" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span> -->
-              <img alt="" src="/upload/haibao1.png">
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <!-- <img data-src="holder.js/200x200?theme=vine" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span> -->
-              <img alt="" src="/upload/haibao2.png">
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-             <!--  <img data-src="holder.js/200x200?theme=sky" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span> -->
-              <img alt="" src="/upload/haibao3.png">
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-             <!--  <img data-src="holder.js/200x200?theme=vine" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span> -->
-              <img alt="" src="/upload/haibao4.png">
-            </div>
+          	<!-- 循环打印 -->
+		    <c:forEach items="${imgsList}" var="img" varStatus="st">
+				<div class="col-xs-6 col-sm-3 placeholder">
+	              <img alt="" src="/upload/${img}">
+	            </div>
+		    </c:forEach>   
           </div>
+          <!--分页-->
+          <div>
+          	<table class="table  table-bordered">
+			  <tfoot>
+			     <tr >
+				     <td colspan="6" align="center">
+						<ul class="pagination">
+							<li><a href='AllImgServlet?start=${pre}'>上一页</a></li>
+							<c:forEach var="i" begin="1" end="6">
+								<c:url var="user" value="jspexam/UserListServlet">
+							        <c:param name="start" value="${(i-1)*5}"/>
+							    </c:url>
+								<li  class=''><a href='/<c:out value="${user}"/>'>${i}</a></li>
+							</c:forEach>
+							<li><a href='UserListServlet?start=${next}'>下一页</a></li>
+						</ul>
+					 </td>
+				 </tr>
+			  </tfoot>
+            </table>
+          </div>
+          
         </div>
       </div>
     </div>
-    <script src="../jquery/jquery-2.1.1.min.js"></script>
-    <script src="../bootstrap/js/bootstrap.min.js"></script>
+    <script src="${basePath}/jquery/jquery-2.1.1.min.js"></script>
+    <script src="${basePath}/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdn.bootcss.com/holder/2.9.4/holder.js"></script>
         <script type="text/javascript">
             $(function () {

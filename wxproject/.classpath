@@ -33,5 +33,8 @@
 	<classpathentry kind="lib" path="web/WEB-INF/lib/xmlpull-1.1.3.1.jar"/>
 	<classpathentry kind="lib" path="web/WEB-INF/lib/xpp3_min-1.1.4c.jar"/>
 	<classpathentry kind="lib" path="web/WEB-INF/lib/xstream-1.4.8.jar"/>
+	<classpathentry kind="lib" path="web/WEB-INF/lib/jstl.jar"/>
+	<classpathentry kind="lib" path="web/WEB-INF/lib/jstl-1.2.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
