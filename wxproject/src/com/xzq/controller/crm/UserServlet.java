@@ -77,9 +77,9 @@ public class UserServlet extends BaseServlet{
 		//web2bean  2-to
 		User user=CommonUtils.toBean(request.getParameterMap(), User.class);
 		//query4Login  queryForLogin
-		User dbUser=userDao.query4Login(user.getLoginacct());
+		User dbUser=userDao.query4Login(user.getName(),user.getPassword());
 		//比对密码
-		if(dbUser!=null&&user.getUserpasswd().equals(dbUser.getUserpasswd())) {
+		if(dbUser!=null&&user.getPassword().equals(dbUser.getPassword())) {
 			//在服务器搞一个空间，用来专门存储这个指定浏览器的登录用户状态
 			HttpSession session=request.getSession();
 			session.setAttribute("loginUser",dbUser);

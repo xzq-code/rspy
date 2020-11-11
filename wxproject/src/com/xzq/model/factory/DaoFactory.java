@@ -47,11 +47,13 @@ public class DaoFactory {
 			prop.load(in);
 			//classPath=com.mes.dao.impl.UserDaoImpl
 			String classPath=prop.getProperty(daoName);
+			System.out.println(classPath);
 			if(classPath==null) {
 				throw new RuntimeException("没有文件");
 			}
 			//通过反射的方式将类的全路径名，实例化出一个类对象
 			Dao targetDao=(Dao) Class.forName(classPath).newInstance();
+			System.out.println("dddd0"+targetDao);
 			this.target=targetDao;
 			//事务处理-采用的是动态代理技术
 			targetDao=(Dao) getTransactionDao();

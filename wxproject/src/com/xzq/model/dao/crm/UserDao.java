@@ -12,7 +12,7 @@ public interface UserDao<User> extends Dao<User>{
 	
 	public void queryTest() ;
 
-	public User query4Login(String loginacct);
+	public User query4Login(String loginacct,String pwd);
 
 	public List<User> pageQueryData(Map<String, Object> map);
 
